@@ -84,6 +84,8 @@ def main(config: dict[str, Any]):
         json.dump(optimiser.history, f)
 
 if __name__ == "__main__":
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    config_dir = os.path.join(base_path, "configurations")
     for filename in os.listdir("configurations"):
         try:
             with open(os.path.join("configurations", filename), "r", encoding="utf-8") as f:
