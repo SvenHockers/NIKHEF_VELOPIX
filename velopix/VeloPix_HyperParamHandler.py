@@ -17,12 +17,12 @@ logger = logging.getLogger(__name__)
 
 def load_events(num_events: int, directory: str = "./data/raw") -> list[dict[str, Any]]:
     directory = os.path.abspath(directory)
-    # if not os.path.isdir(directory):
-    #     logger.error(
-    #         "Cannot load events: directory does not exist -> %s", directory
-    #     )
-    #     return []
-    # logger.info("Looking for JSON files in directory: %s", directory)
+    if not os.path.isdir(directory):
+        logger.error(
+            "Cannot load events: directory does not exist -> %s", directory
+        )
+        return []
+    logger.info("Looking for JSON files in directory: %s", directory)
 
     events: list[dict[str, Any]] = []
     for i in range(num_events):
@@ -81,7 +81,7 @@ def main(config: dict[str, Any], root_dir: str):
     )
     logger.info("Optimal parameters found: %s", optimal_parameters)
 
-    with open("result.json", "w") as f:
+    with open(os.path.join(root_dir, "result.json"), "w") as f:
         json.dump(optimiser.history, f)
 
 if __name__ == "__main__":
