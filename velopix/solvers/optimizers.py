@@ -95,9 +95,9 @@ class BaseOptimizer(ABC):
             calculator = EventMetricsCalculator(run_data)
             clone_rate = calculator.get_metric(metric="clone_percentage", stat="mean")
             terms = (time_rate, clone_rate, ghost_rate, num_tracks)
-            return sum(w * t for w, t in zip(weights, terms, strict=True)) + penalty
+            return sum(w * t for w, t in zip(weights, terms)) + penalty # removed strict=True (not supported in python3.9)
         terms = (time_rate, ghost_rate, num_tracks)
-        return sum(w * t for w, t in zip(weights, terms, strict=True)) + penalty
+        return sum(w * t for w, t in zip(weights, terms)) + penalty # removede strict=True (not supported in python3.9)
     
     def _evaluate_run(self, validationResult: Union[ValidationResults, ValidationResultsNested], weight: list[float], nested: bool = False) -> None:
         score = self.objective_func(weight, nested)

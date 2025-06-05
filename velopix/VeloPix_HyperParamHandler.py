@@ -17,12 +17,12 @@ logger = logging.getLogger(__name__)
 
 def load_events(num_events: int, directory: str = "./data/raw") -> list[dict[str, Any]]:
     directory = os.path.abspath(directory)
-    if not os.path.isdir(directory):
-        logger.error(
-            "Cannot load events: directory does not exist -> %s", directory
-        )
-        return []
-    logger.info("Looking for JSON files in directory: %s", directory)
+    # if not os.path.isdir(directory):
+    #     logger.error(
+    #         "Cannot load events: directory does not exist -> %s", directory
+    #     )
+    #     return []
+    # logger.info("Looking for JSON files in directory: %s", directory)
 
     events: list[dict[str, Any]] = []
     for i in range(num_events):
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         try:
             with open(os.path.join(config_dir, filename), "r", encoding="utf-8") as f:
                 CONFIG = json.load(f)
-                main(CONFIG, config_dir)
+                main(CONFIG, base_path)
         except (FileNotFoundError, json.JSONDecodeError) as e:
             logging.warning(f"Unable to load '{filename}' config")
             continue
