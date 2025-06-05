@@ -5,7 +5,7 @@ set -e
 # tar xzf project.tar.gz
    
 # activate the venv
-source env/bin/activate                   
+source velopix/env/bin/activate                   
 
 # run the Python analysis script
 for cfg in configurations/*.json; do
