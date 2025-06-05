@@ -2,7 +2,7 @@
 set -e                                  
 
 # Unpack all the files
-# tar xzf project.tar.gz
+tar xzf velopix.tar.gz
    
 # activate the venv
 source velopix/env/bin/activate                   
