@@ -23,7 +23,7 @@ request_memory = 4G
 
 # enable HTCondor’s built-in file transfer mechanism -> so we can export generated files
 should_transfer_files = YES
-
+transfer_output_files = velopix/output
 # transfer all newly created/modified files back on normal exit or if evicted/held
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
