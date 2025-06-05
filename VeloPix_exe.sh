@@ -9,7 +9,7 @@ source velopix/env/bin/activate
 
 # run the Python analysis script
 for cfg in configurations/*.json; do
-    python VeloPix_HyperParamHandler.py --config "$cfg"
+    python3 VeloPix_HyperParamHandler.py --config "$cfg"
     mv result.json output/result_$(basename "$cfg")
 done
 # deactivate venv
