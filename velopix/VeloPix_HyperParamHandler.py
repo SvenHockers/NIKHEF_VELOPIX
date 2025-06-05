@@ -2,6 +2,7 @@ import os
 import json
 import logging
 from typing import Any
+import argparse
 
 from solvers.velopix_pipeline import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase
 import solvers
@@ -85,14 +86,17 @@ def main(config: dict[str, Any], root_dir: str):
         json.dump(optimiser.history, f)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", required=True, help="Path to the configuration file")
+    args = parser.parse_args()
+
     base_path = os.path.dirname(os.path.abspath(__file__))
-    config_dir = os.path.join(base_path, "configurations")
-    for filename in os.listdir(config_dir):
-        try:
-            with open(os.path.join(config_dir, filename), "r", encoding="utf-8") as f:
-                CONFIG = json.load(f)
-                main(CONFIG, base_path)
-        except (FileNotFoundError, json.JSONDecodeError) as e:
-            logging.warning(f"Unable to load '{filename}' config")
-            continue
+    config_path = args.config
+
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            CONFIG = json.load(f)
+            main(CONFIG, base_path)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        logging.warning(f"Unable to load config from '{config_path}': {e}")
     
