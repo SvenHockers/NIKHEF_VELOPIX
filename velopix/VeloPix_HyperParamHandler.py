@@ -13,7 +13,7 @@ Unknowns for atm:
     - how do we get this run data?
 """
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.CRITICAL + 1) # this suppresses all logging
 logger = logging.getLogger(__name__)
 
 def load_events(num_events: int, directory: str = "./data/raw") -> list[dict[str, Any]]:
