@@ -63,7 +63,7 @@ def main(config: dict[str, Any]):
     try:
         Solver = getattr(solvers, config.get("solverName")) # solverName CANNOT be None!
     except AttributeError:
-        raise ValueError(f"No class named '{config.get("solverName")}' found")
+        raise ValueError(f"No class named {config.get('solverName')} found")
     
     events = load_events(config["num_events"], "./data/raw")
     if not events:
