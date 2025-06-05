@@ -59,13 +59,13 @@ def get_pipeline(algo: str, events: list[dict[str, Any]], intra_node: bool) -> P
     return pipeline(events=events, intra_node=intra_node) # type: ignore
 
 
-def main(config: dict[str, Any]):
+def main(config: dict[str, Any], root_dir: str):
     try:
         Solver = getattr(solvers, config.get("solverName")) # solverName CANNOT be None!
     except AttributeError:
         raise ValueError(f"No class named {config.get('solverName')} found")
     
-    events = load_events(config["num_events"], "./data/raw")
+    events = load_events(config["num_events"], os.path.join(root_dir, "/data/raw"))
     if not events:
         logger.error("No events were loaded. Exiting.")
         return
@@ -86,11 +86,11 @@ def main(config: dict[str, Any]):
 if __name__ == "__main__":
     base_path = os.path.dirname(os.path.abspath(__file__))
     config_dir = os.path.join(base_path, "configurations")
-    for filename in os.listdir("configurations"):
+    for filename in os.listdir(config_dir):
         try:
-            with open(os.path.join("configurations", filename), "r", encoding="utf-8") as f:
+            with open(os.path.join(config_dir, filename), "r", encoding="utf-8") as f:
                 CONFIG = json.load(f)
-                main(CONFIG)
+                main(CONFIG, config_dir)
         except (FileNotFoundError, json.JSONDecodeError) as e:
             logging.warning(f"Unable to load '{filename}' config")
             continue
