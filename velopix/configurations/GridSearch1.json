@@ -3,7 +3,7 @@
     "reconstruction_algo": "TF", 
     "num_events": 100, 
     "intra_node": true, 
-    "max_runs": 10,
+    "max_runs": 5,
 
     "optimizer": { 
         "resolution": 3, 

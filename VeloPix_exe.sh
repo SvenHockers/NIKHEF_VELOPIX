@@ -14,7 +14,7 @@ pip install velopix/velopix-0.7.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_
 
 mkdir -p "velopix/output"
 # run the Python analysis script
-for cfg in configurations/*.json; do
+for cfg in velopix/configurations/*.json; do
     python3 velopix/VeloPix_HyperParamHandler.py --config "$cfg"
     mv velopix/result.json velopix/output/result_$(basename "$cfg")
 done
