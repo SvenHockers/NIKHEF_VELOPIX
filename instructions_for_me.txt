@@ -1,18 +1,21 @@
-OK OK This is the happy flow 
+Guide for VeloPix Workflow
+==========================
 
-1)  mv this entire dir to Nikhef
-2)  mv .sh and .sub file out of the dir into the parent dir (set it aside)
-3)  compress this dir into `velopix.tar.gz` use following cmd:
-        tar czf velopix.tar.gz velopix/ 
+1) Update repository
+   git pull
 
-4) verify content of the compressed file:
-        tar tzf velopix.tar.gz
+2) Remove existing zip
+   rm velopix.tar.gz
 
-5) make .sh executable:
-        chmod +x VeloPix_stoomboot_envHandler.sh
+3) Compress the directory into velopix.tar.gz
+   tar czf velopix.tar.gz velopix/
 
-5) upload .sub job to cluster:
-        condor_submit VeloPix_Full_Job.sub
+4) Verify contents of the compressed file
+   tar tzf velopix.tar.gz
 
+5) Upload the .sub job to the cluster
+   condor_submit VeloPix_Full_Job.sub
 
-Maybe good idea to verify this with xenofone :))
+6) Retrieve data from the cluster
+   scp -r username@login.nikhef.nl:NIKHEF_VELOPIX/output ~/Desktop/
+   (General form: scp -r username@ssh_address:project/output_dir local_transfer_dir)
