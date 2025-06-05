@@ -36,7 +36,7 @@ class PipelineBase(ABC):
             self.tracks: list[Track] = model.solve_parallel(self.events)
             runtime = time.time() - tstart 
             if self.nested:
-                valMap = validate_to_json_nested(self.json_events, self.tracks, verbose=True) # type: ignore
+                valMap = validate_to_json_nested(self.json_events, self.tracks, verbose=False) # type: ignore
             else:
                 valMap = validate_to_json(self.json_events, self.tracks, verbose=False) # type: ignore
             valMap["inference_time"] = runtime
