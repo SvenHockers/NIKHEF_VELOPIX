@@ -65,7 +65,8 @@ def main(config: dict[str, Any], root_dir: str):
     except AttributeError:
         raise ValueError(f"No class named {config.get('solverName')} found")
     
-    events = load_events(config["num_events"], os.path.join(root_dir, "/data/raw"))
+    logging.info(f"Root Dir: {root_dir}")
+    events = load_events(config["num_events"], os.path.join(root_dir, "data/raw"))
     if not events:
         logger.error("No events were loaded. Exiting.")
         return

@@ -1,4 +1,4 @@
-d{
+{
     "solverName": "Bayesian", 
     "reconstruction_algo": "TF", 
     "num_events": 100, 
