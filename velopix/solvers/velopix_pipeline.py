@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 import time
 # import pandas as pd
-from .validation_to_datasets import *
 from velopix import Event, Track, TrackFollowing, GraphDFS, SearchByTripletTrie, \
                             validate_print, validate_to_json_nested, validate_to_json
 from .optimizers import BaseOptimizer
