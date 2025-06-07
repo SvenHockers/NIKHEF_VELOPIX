@@ -13,7 +13,7 @@ mkdir -p "velopix/output"
 # run the Python analysis script
 for cfg in velopix/configurations/*.json; do
     python3 velopix/VeloPix_HyperParamHandler.py --config "$cfg"
-    mv velopix/result.json velopix/output/result_$(basename "$cfg")
+    mv velopix/history.jsonl velopix/output/result_$(basename "$cfg").jsonl
 done
 # deactivate venv
 deactivate                                
