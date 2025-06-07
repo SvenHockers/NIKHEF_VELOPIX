@@ -5,7 +5,7 @@ from typing import Any
 import argparse
 
 import dynamicWriter # this monkey patches the BaseOptimiser to directly steam to an file
-from velopix.hyperParameterFramework import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase, solvers, BaseOptimiser
+from velopix.hyperParameterFramework import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase, solvers
 
 logging.basicConfig(level=logging.CRITICAL + 1) # this suppresses all logging
 logger = logging.getLogger(__name__)
