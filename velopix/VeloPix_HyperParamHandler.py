@@ -4,7 +4,6 @@ import logging
 from typing import Any
 import argparse
 
-from velopix.DetectorEvent import Event
 from velopix.hyperParameterFramework import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase, solvers
 
 logging.basicConfig(level=logging.CRITICAL + 1) # this suppresses all logging
@@ -19,9 +18,9 @@ def load_events(num_events: int, directory: str = "./data/raw") -> list[dict[str
         return []
     logger.info("Looking for JSON files in directory: %s", directory)
 
-    events: list[Event] = []
+    events: list[dict[str, Any]] = []
     for i in range(num_events):
-        if i == 51:
+        if i in [51 ,166, 569]:
             logger.warning("Skipping problematic file: velo_event_%d.json", i)
             continue
 
@@ -30,7 +29,7 @@ def load_events(num_events: int, directory: str = "./data/raw") -> list[dict[str
 
         try:
             with open(filepath, "r") as f:
-                events.append(Event(json.load(f)))
+                events.append(json.load(f))
             logger.info("Loaded file: %s", filename)
         except FileNotFoundError:
             logger.error("File not found: %s", filepath)
