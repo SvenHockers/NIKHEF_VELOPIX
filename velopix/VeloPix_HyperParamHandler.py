@@ -4,16 +4,9 @@ import logging
 from typing import Any
 import argparse
 
-from solvers.velopix_pipeline import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase
-import solvers
+from velopix.hyperParameterFramework import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase, solvers
 
-"""     
-Unknowns for atm:
-- How do we save the data?
-    - how do we get this run data?
-"""
-
-logging.basicConfig(level=logging.CRITICAL + 1) # this suppresses all logging
+logging.basicConfig(level=logging.DEBUG) # this suppresses all logging
 logger = logging.getLogger(__name__)
 
 def load_events(num_events: int, directory: str = "./data/raw") -> list[dict[str, Any]]:
@@ -75,7 +68,7 @@ def main(config: dict[str, Any], root_dir: str):
 
     optimiser = Solver(**CONFIG["optimizer"])
 
-    logger.info("Starting pipeline...")
+    logger.info(f"Starting {config["reconstruction_algo"]} pipeline for {config.get("solverName")}")
     optimal_parameters = pipeline.optimise_parameters(
         optimiser,
         max_runs=config["max_runs"],

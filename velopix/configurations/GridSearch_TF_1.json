@@ -1,9 +1,9 @@
 {
     "solverName": "GridSearch", 
     "reconstruction_algo": "TF", 
-    "num_events": 100, 
+    "num_events": 1000, 
     "intra_node": true, 
-    "max_runs": 5,
+    "max_runs": 10000,
 
     "optimizer": { 
         "resolution": 3, 

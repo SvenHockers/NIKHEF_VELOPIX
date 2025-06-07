@@ -1,5 +1,5 @@
 from typing import Union, Any
-from velopix import TrackFollowing, GraphDFS, SearchByTripletTrie
+from velopix.ReconstructionAlgorithms import TrackFollowing, GraphDFS, SearchByTripletTrie
 
 try:
     from typing import TypeAlias

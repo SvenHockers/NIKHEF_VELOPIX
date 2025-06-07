@@ -4,7 +4,14 @@ import logging
 from typing import Any
 import argparse
 
-from velopix.hyperParameterFramework import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase, solvers
+from solvers.velopix_pipeline import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase
+import solvers
+
+"""     
+Unknowns for atm:
+- How do we save the data?
+    - how do we get this run data?
+"""
 
 logging.basicConfig(level=logging.CRITICAL + 1) # this suppresses all logging
 logger = logging.getLogger(__name__)
