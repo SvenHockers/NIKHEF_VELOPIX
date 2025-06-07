@@ -28,7 +28,7 @@ transfer_output_files = velopix/output
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 # we have to list exactly the inputs HTCondor should stage to the remote node:
-transfer_input_files    = VeloPix_exe.sh,velopix.tar.gz
+transfer_input_files    = VeloPix_exe.sh,velopix.tar.gz,$(CONFIG)
 
 # submit the job
 queue 1
