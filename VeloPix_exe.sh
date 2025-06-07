@@ -17,11 +17,11 @@ source env/bin/activate
 pip install velopix
 
 # ensure output dir
-mkdir -p velopix/output
+mkdir -p output
 
 # run only the passed config
 python3 velopix/VeloPix_HyperParamHandler.py --config "$cfg"
-mv history.jsonl velopix/output/result_$(basename "$cfg" .json).jsonl
+mv history.jsonl output/result_$(basename "$cfg" .json).jsonl
 
 # teardown
 deactivate
