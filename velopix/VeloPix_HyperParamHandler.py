@@ -6,7 +6,7 @@ import argparse
 
 from velopix.hyperParameterFramework import TrackFollowingPipeline, GraphDFSPipeline, SearchByTripletTriePipeline, PipelineBase, solvers
 
-logging.basicConfig(level=logging.DEBUG) # this suppresses all logging
+logging.basicConfig(level=logging.CRITICAL + 1) # this suppresses all logging
 logger = logging.getLogger(__name__)
 
 def load_events(num_events: int, directory: str = "./data/raw") -> list[dict[str, Any]]:
