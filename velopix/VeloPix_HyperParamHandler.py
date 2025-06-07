@@ -68,7 +68,7 @@ def main(config: dict[str, Any], root_dir: str):
 
     optimiser = Solver(**CONFIG["optimizer"])
 
-    logger.info(f"Starting {config["reconstruction_algo"]} pipeline for {config.get("solverName")}")
+    logger.info(f"Starting {config['reconstruction_algo']} pipeline for {config.get('solverName')}")
     optimal_parameters = pipeline.optimise_parameters(
         optimiser,
         max_runs=config["max_runs"],
