@@ -4,6 +4,7 @@
 
 # the script HTCondor will run to init the py env and start the .py file
 executable = VeloPix_exe.sh
+arguments = $(CONFIG)
 log = job.log
 output = job.out
 error  = job.err
