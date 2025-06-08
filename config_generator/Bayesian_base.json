@@ -1,6 +1,6 @@
 {
     "solverName": "Bayesian", 
-    "num_events": 1000, 
+    "num_events": 100, 
     "intra_node": true, 
     "max_runs": 21,
 
