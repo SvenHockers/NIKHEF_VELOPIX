@@ -20,7 +20,7 @@ error  = job.err
 
 # resource requests
 request_cpus = 8
-request_memory = 4G
+request_memory = 8G
 
 # enable HTCondor’s built-in file transfer mechanism -> so we can export generated files
 should_transfer_files = YES
