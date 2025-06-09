@@ -20,7 +20,7 @@ class HistoryFileWriter:
         mean_clones_percentage = sum(clone_percentages) / len(clone_percentages)
         entry: dict[str, Any] = {
             str(uuid4()): {
-            "params": validation_result["parameters"],
+            "params": deepcopy(self.prev_config),
             "score": score,
             "total_ghosts": validation_result["total_ghosts"],
             "overall_ghost_rate": validation_result["overall_ghost_rate"],
