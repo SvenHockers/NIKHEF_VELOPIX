@@ -25,7 +25,9 @@ class HistoryFileWriter:
             "total_ghosts": validation_result["total_ghosts"],
             "overall_ghost_rate": validation_result["overall_ghost_rate"],
             "event_avg_ghost_rate": validation_result["event_avg_ghost_rate"],
-            "clone_percentage": mean_clones_percentage
+            "clone_percentage": mean_clones_percentage,
+            "total_tracks": validation_result["total_tracks"],
+            "time": validation_result["inference_time"]
             }
         }
         self.f.write(json.dumps(entry) + "\n")
