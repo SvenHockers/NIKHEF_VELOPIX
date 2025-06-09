@@ -15,12 +15,12 @@ class HistoryFileWriter:
         mode = "at" if compress else "a"
         self.f = opener(path, mode=mode, encoding="utf-8", buffering=1)
 
-    def record(self, validation_result, score):
+    def record(self, validation_result, score, params):
         clone_percentages = [sub_dict["clone_percentage"] for sub_dict in validation_result["categories"] if "clone_percentage" in sub_dict]
         mean_clones_percentage = sum(clone_percentages) / len(clone_percentages)
         entry: dict[str, Any] = {
             str(uuid4()): {
-            "params": deepcopy(self.prev_config),
+            "params": deepcopy(params),
             "score": score,
             "total_ghosts": validation_result["total_ghosts"],
             "overall_ghost_rate": validation_result["overall_ghost_rate"],
@@ -40,7 +40,7 @@ atexit.register(_writer.close)
 
 def _file_backed_evaluate_run(self, validationResult, weight, nested):  
     score = self.objective_func(weight, nested)
-    _writer.record(validationResult, score)
+    _writer.record(validationResult, score, params=self.prev_config)
     if score is None:  # type:ignore
         return
     self.score_history.append(score)
