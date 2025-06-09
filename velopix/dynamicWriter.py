@@ -20,6 +20,9 @@ class HistoryFileWriter:
             str(uuid4()): {
             "params": validation_result["parameters"],
             "score": score,
+            "total_tracks": validation_result["total_tracks"],
+            "overall_ghost_rate": validation_result["overall_ghost_rate"]
+            "avg_event_ghost_rate": validation_result["event_avg_ghost_rate"]
             "meta": validation_result,
             }
         }
