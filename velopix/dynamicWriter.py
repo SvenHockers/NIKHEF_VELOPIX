@@ -34,7 +34,7 @@ class HistoryFileWriter:
 _writer = HistoryFileWriter(path="history.jsonl", compress=False)
 atexit.register(_writer.close)
 
-def _file_backed_evaluate_run(self, validationResult, weight, nested):
+def _file_backed_evaluate_run(self, validationResult, weight, nested):  
     score = self.objective_func(weight, nested)
     _writer.record(validationResult, score)
     if score is None:  # type:ignore

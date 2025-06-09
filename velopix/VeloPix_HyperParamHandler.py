@@ -76,8 +76,8 @@ def main(config: dict[str, Any], root_dir: str):
     )
     logger.info("Optimal parameters found: %s", optimal_parameters)
 
-    with open(os.path.join(root_dir, "result.json"), "w") as f:
-        json.dump(optimiser.history, f)
+    # with open(os.path.join(root_dir, "result.json"), "w") as f:
+    #     json.dump(optimiser.history, f)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
