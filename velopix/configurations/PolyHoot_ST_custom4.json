@@ -9,7 +9,7 @@
     "objective": "min",
     "alfa": 2,      
     "epsilon": 10,  
-    "eta": 0.55,       
+    "eta": 15,       
     "nested": true,
     "weights": [0.4, 0.2, 0.5, -7.0]
   }
