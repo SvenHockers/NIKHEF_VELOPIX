@@ -7,7 +7,7 @@
     "optimizer": {
       "max_iterations": 1000,
       "objective": "min",
-      "alfa": 4.5, 
+      "alfa": 10, 
       "epsilon": 18.0,  
       "eta": 0.45,       
       "nested": true,

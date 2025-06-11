@@ -7,8 +7,8 @@
   "optimizer": {
     "max_iterations": 1000,
     "objective": "min",
-    "alfa": 5.5,      
-    "epsilon": 22.0,  
+    "alfa": 2,      
+    "epsilon": 10,  
     "eta": 0.55,       
     "nested": true,
     "weights": [0.4, 0.2, 0.5, -7.0]
